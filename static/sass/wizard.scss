@@ -1,0 +1,41 @@
+.wizard {
+  padding: 20px;
+
+  &__title {
+    margin-top: 0;
+    font: 3rem 'OpenSans-Bold';
+  } 
+
+  &__fields {
+
+  }
+
+  &__navigation {
+    text-align: center;
+    margin-top: 30px;
+  }
+}
+
+.field {
+  display: grid;
+  grid-template-columns: 20% 80%;
+
+  &__label {
+    font-size: 24px;
+  }
+
+  &__checkbox {
+    margin-top: 12px;
+  }
+}
+
+.next {
+  display: inline-block;
+  background-color: hsl(283, 85%, 30%);
+  padding: 6px 25px;
+  color: #FFF;
+  text-transform: uppercase;
+  border-radius: 3px;
+  border: 1px solid #000;
+  font: 1rem 'OpenSans-SemiBold';
+}

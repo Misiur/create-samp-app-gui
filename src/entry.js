@@ -1,13 +1,25 @@
-'use strict';
-require('../static/sass/main.scss');
+import '../static/sass/main.scss';
 
-var React = require('react');
-var ReactDom = require('react-dom');
+import 'rxjs';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore';
+import createHistory from 'history/createBrowserHistory';
+import { ConnectedRouter } from 'react-router-redux';
 
-var App = React.createClass({
-	render: function() {
-		return <div><div className="tech electron">Electron</div> + <div className="tech react">React</div> + <div className="tech sass">Sass</div></div>;
-	}
-});
+import Main from './Main.js';
+import state from './state';
 
-ReactDom.render(<App/>, document.getElementById('react-root'));
+const history = createHistory();
+const store = configureStore(history, state);
+
+const App = (
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <Main />
+    </ConnectedRouter>
+  </Provider>
+);
+
+ReactDOM.render(App, document.getElementById('react-root'));

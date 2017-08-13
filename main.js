@@ -1,14 +1,15 @@
-'use strict';
-
-var app = require('app');  // Module to control application life.
-var BrowserWindow = require('browser-window');  // Module to create native browser window.
+const { app, crashReporter, BrowserWindow } = require('electron');
+const path = require('path');
 
 // Report crashes to our server.
-require('crash-reporter').start();
+// crashReporter.start({
+//   productName: 'create-samp-app',
+//   companyName: 'Misiur',
+// })
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-var mainWindow = null;
+let mainWindow = null;
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function() {
@@ -23,13 +24,13 @@ app.on('window-all-closed', function() {
 // initialization and is ready to create browser windows.
 app.on('ready', function() {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600});
+  mainWindow = new BrowserWindow({width: 1024, height: 600, frame: false});
 
   // and load the index.html of the app.
-  mainWindow.loadUrl('file://' + __dirname + '/index.html');
+  mainWindow.loadURL('file://' + __dirname + '/static/index.html');
 
   // Only open dev tools in dev environment
-  if(process.env.ENVIRONMENT === 'DEV') {
+  if(process.env.NODE_ENV === 'development') {
     // Open the DevTools.
     mainWindow.openDevTools();
   }

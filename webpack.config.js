@@ -1,19 +1,33 @@
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-  context: __dirname + '/src',
+  context: path.join(__dirname, 'src'),
   entry: './entry.js',
 
   output: {
     filename: 'bundle.js',
-    path: __dirname + '/build',
+    path: path.join(__dirname, 'build'),
     publicPath: 'http://localhost:8080/build/'
   },
 
   module: {
-    loaders: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.scss$/, loader: 'style-loader!css-loader!sass-loader' }
-    ]
+    rules: [{
+      test: /\.ttf$/,
+      use: [
+        'url-loader',
+      ],
+    }, {
+      test: /\.scss$/,
+      use: [
+        'style-loader',
+        'css-loader',
+        'sass-loader'
+      ],
+    }, {
+      test: /\.js$/,
+      include: path.join(__dirname, 'src'),
+      use: ['babel-loader'],
+    }]
   }
 };
