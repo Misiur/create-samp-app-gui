@@ -1,10 +1,8 @@
 export const SET_STEP = 'SET_STEP';
 
-export const setStep = (step) => {
-  return {
-    type: SET_STEP,
-    payload: {
-      step,
-    },
-  };
-};
+export const setStep = step => ({
+  type: SET_STEP,
+  payload: {
+    step,
+  },
+});

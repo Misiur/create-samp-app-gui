@@ -106,6 +106,7 @@ class Meta extends Component {
             >
               <option value="windows">Windows</option>
               <option value="linux">Linux</option>
+              <option value="centos7">CentOS 7</option>
             </Field>
           </div>
         </div>

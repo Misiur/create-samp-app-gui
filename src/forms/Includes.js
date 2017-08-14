@@ -1,6 +1,7 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
+import values from 'create-samp-app/values';
 
 import { setStep } from '../ducks';
 
@@ -14,20 +15,18 @@ const mapDispatchToProps = dispatch => ({
   previousStep: currentStep => dispatch(setStep(currentStep - 1)),
 });
 
-const libraries = [
-  'YSI',
-];
+const libraries = values.allIncludes;
 
 const Includes = ({ nextStep, previousStep, currentStep }) => (
   <div>
     <h1 className="wizard__title">Includes</h1>
     <div className="wizard__fields">
       { libraries.map((library, index) => {
-        return <div key={`${library}`} className="field">
-          <label htmlFor={`includes.${library}`} className="field__label">{library}</label>
+        return <div key={`${library.value}`} className="field">
+          <label htmlFor={`includes.${library.value}`} className="field__label">{library.name}</label>
           <Field
             className="field__checkbox"
-            name={`includes.${library}`}
+            name={`includes.${library.value}`}
             type="checkbox"
             component="input"
           />

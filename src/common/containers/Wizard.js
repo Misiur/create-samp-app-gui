@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Meta from '../../forms/Meta.js';
-import Server from '../../forms/Server.js';
-import Compiler from '../../forms/Compiler.js';
-import Includes from '../../forms/Includes.js';
-import Plugins from '../../forms/Plugins.js';
-import Confirm from '../../forms/Confirm.js';
-import Processing from '../../forms/Processing.js';
+import Meta from '../../forms/Meta';
+import Server from '../../forms/Server';
+import Compiler from '../../forms/Compiler';
+import Includes from '../../forms/Includes';
+import Plugins from '../../forms/Plugins';
+import Confirm from '../../forms/Confirm';
+import Processing from '../../forms/Processing';
+import Finished from '../../forms/Finished';
 
 const mapStateToProps = state => ({
   step: state.wizard.step,
@@ -36,6 +37,9 @@ class Wizard extends Component {
       }
       case 7: {
         return <Processing />;
+      }
+      case 8: {
+        return <Finished />;
       }
       default: {
         return <Meta />;

@@ -1,3 +1,5 @@
+import path from 'path';
+
 const validate = (values) => {
   const errors = {};
 
@@ -7,6 +9,8 @@ const validate = (values) => {
 
   if (!values.folder) {
     errors.folder = 'Project folder is required';
+  } else if (!path.isAbsolute(values.folder)) {
+    errors.folder = 'Path must be absolute';
   }
 
   return errors;

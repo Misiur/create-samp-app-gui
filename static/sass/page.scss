@@ -29,6 +29,11 @@
     &--active {
       font: 18px 'OpenSans-Bold';
     }
+
+    &--disabled {
+      color: #777;
+      text-decoration: line-through;
+    }
   }
 }
 
@@ -39,6 +44,7 @@
 .close-button {
   position: absolute;
   right: 10px;
+  z-index: 5;
   top: 10px;
   border: 0;
   // height: 10px;

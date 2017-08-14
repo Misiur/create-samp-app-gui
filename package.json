@@ -39,7 +39,7 @@
   },
   "scripts": {
     "start": "cross-env NODE_ENV=development electron .",
-    "build": "webpack",
+    "build": "cross-env NODE_ENV=production webpack",
     "watch": "webpack-dev-server --hot --inline",
     "windows": "electron-packager ./ create-samp-app-gui --out ./bin --overwrite --ignore=\"ignore|bin|node_modules\""
   },

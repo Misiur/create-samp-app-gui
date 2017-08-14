@@ -6,8 +6,6 @@ import {
 function wizardReducer(state = initialState, action) {
   switch (action.type) {
     case SET_STEP: {
-      console.log(state);
-      console.log(action.payload.step);
       return { ...state, step: action.payload.step };
     }
   }

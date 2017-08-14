@@ -14,11 +14,20 @@ const mapDispatchToProps = dispatch => ({
   previousStep: currentStep => dispatch(setStep(currentStep - 1)),
 });
 
-
 const Compiler = ({ nextStep, previousStep, currentStep }) => (
   <div>
     <h1 className="wizard__title">Compiler</h1>
     <div className="wizard__fields">
+      <div className="field field--wider">
+        <label htmlFor="compiler" className="field__label">None</label>
+        <Field
+          className="field__checkbox"
+          name="compiler"
+          type="radio"
+          component="input"
+          value="none"
+        />
+      </div>
       <div className="field field--wider">
         <label htmlFor="compiler" className="field__label">Standard</label>
         <Field

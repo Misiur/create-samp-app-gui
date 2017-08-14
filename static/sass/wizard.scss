@@ -1,5 +1,6 @@
 .wizard {
-  padding: 20px;
+  position: relative;
+  padding: 20px 30px;
 
   &__title {
     margin-top: 0;
@@ -12,7 +13,10 @@
 
   &__navigation {
     text-align: center;
-    margin-top: 30px;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translate(-50%, 0);
   }
 
   &__previous {
@@ -94,5 +98,31 @@
   &:hover {
     background-color: hsl(275, 100%, 65%);
     cursor: pointer;
+  }
+}
+
+.confirmation {
+  &__item {
+    float: left;
+    clear: both;
+    margin-bottom: 20px;
+    width: 100%;
+    border-bottom: 1px solid #CCC;
+  }
+  &__label {
+    display: block;
+    width: 200px;
+    float: left;
+    font: 1.5rem 'OpenSans-SemiBold';
+
+    &:first-letter {
+      text-transform: capitalize;
+    }
+  }
+
+  &__value {
+    float: left;
+    padding-top: 3px;
+    font-size: 1.2rem;
   }
 }

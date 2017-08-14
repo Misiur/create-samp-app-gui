@@ -1,7 +1,11 @@
 export default {
   step: 1,
-  server: true,
+  platform: 'windows',
+  server: '0.3.7-R2-1',
+  delete: false,
   compiler: 'standard',
   includes: {},
-  plugins: {},
+  plugins: {
+    mysql: 'r39',
+  },
 };
