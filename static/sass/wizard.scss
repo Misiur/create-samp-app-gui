@@ -14,11 +14,19 @@
     text-align: center;
     margin-top: 30px;
   }
+
+  &__previous {
+    margin-right: 25px;
+  }
+
+  .field {
+    margin-bottom: 25px;
+  }
 }
 
 .field {
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 30% 70%;
 
   &__label {
     font-size: 24px;
@@ -27,15 +35,64 @@
   &__checkbox {
     margin-top: 12px;
   }
+
+  &--wider {
+    grid-template-columns: 40% 60%;
+  }
+
+  &__box {
+    padding-top: 3px;
+  }
+
+  &__text {
+    padding: 7px 12px;
+    border-radius: 4px;
+    border: 1px solid #CCC;
+  }
+
+  &__select {
+    padding: 7px 12px;
+    border-radius: 4px;
+    border: 1px solid #CCC;    
+  }
+
+  &__file-wrapper {
+    overflow: hidden;
+
+    .field__text {
+      width: 100%;
+    }
+  }
+
+  &__file-button {
+    float: right;
+    padding: 5px 8px;
+  }
+
+  &--error {
+    .field__text {
+      background-color: hsla(0, 100%, 70%, 0.1);
+      border: 1px solid hsl(0, 100%, 29%);
+    }
+
+    .field__box {
+      color: hsl(0, 91%, 36%);
+    }
+  }
 }
 
-.next {
+.button {
   display: inline-block;
   background-color: hsl(283, 85%, 30%);
   padding: 6px 25px;
   color: #FFF;
   text-transform: uppercase;
   border-radius: 3px;
-  border: 1px solid #000;
+  border: 1px solid hsl(275, 100%, 65%);
   font: 1rem 'OpenSans-SemiBold';
+
+  &:hover {
+    background-color: hsl(275, 100%, 65%);
+    cursor: pointer;
+  }
 }

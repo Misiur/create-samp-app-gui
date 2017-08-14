@@ -1,5 +1,5 @@
 import React from 'react';
-import { reduxForm, Field } from 'redux-form';
+import { reduxForm, Field, formValues } from 'redux-form';
 import { connect } from 'react-redux';
 
 import { setStep } from '../ducks';
@@ -14,22 +14,11 @@ const mapDispatchToProps = dispatch => ({
   previousStep: currentStep => dispatch(setStep(currentStep - 1)),
 });
 
-const Server = ({ nextStep, previousStep, currentStep }) => (
+const Confirm = ({ nextStep, previousStep, currentStep, ...props }) => (
   <div>
-    <h1 className="wizard__title">Select server version</h1>
+    <h1 className="wizard__title">Confirm</h1>
     <div className="wizard__fields">
-      <h2>Server version</h2>
-      <div className="field">
-        <label htmlFor="server" className="field__label">0.3.7-R2-1</label>
-        <Field
-          className="field__checkbox"
-          name="server"
-          type="checkbox"
-          component="input"
-          value="0.3.7-R2-1"
-          disabled
-        />
-      </div>
+      {props.name} {props.folder} {props.platform} {props.compiler} {typeof props.includes} {typeof props.plugins}
     </div>
     <div className="wizard__navigation">
       <button className="wizard__previous button" type="button" onClick={() => previousStep(currentStep)}>
@@ -46,4 +35,11 @@ export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({
   form: 'wizard',
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true,
-})(Server));
+})(formValues({
+  name: 'name',
+  folder: 'folder',
+  platform: 'platform',
+  compiler: 'compiler',
+  include: 'include',
+  plugin: 'plugin',
+})(Confirm)));

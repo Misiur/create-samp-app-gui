@@ -1,10 +1,10 @@
-export const SET_PAGE = 'SET_PAGE';
+export const SET_STEP = 'SET_STEP';
 
-export const setPage = (page) => {
+export const setStep = (step) => {
   return {
-    type: SET_PAGE,
+    type: SET_STEP,
     payload: {
-      page,
+      step,
     },
   };
 };

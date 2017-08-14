@@ -14,22 +14,25 @@ const mapDispatchToProps = dispatch => ({
   previousStep: currentStep => dispatch(setStep(currentStep - 1)),
 });
 
-const Server = ({ nextStep, previousStep, currentStep }) => (
+const libraries = [
+  'YSI',
+];
+
+const Includes = ({ nextStep, previousStep, currentStep }) => (
   <div>
-    <h1 className="wizard__title">Select server version</h1>
+    <h1 className="wizard__title">Includes</h1>
     <div className="wizard__fields">
-      <h2>Server version</h2>
-      <div className="field">
-        <label htmlFor="server" className="field__label">0.3.7-R2-1</label>
-        <Field
-          className="field__checkbox"
-          name="server"
-          type="checkbox"
-          component="input"
-          value="0.3.7-R2-1"
-          disabled
-        />
-      </div>
+      { libraries.map((library, index) => {
+        return <div key={`${library}`} className="field">
+          <label htmlFor={`includes.${library}`} className="field__label">{library}</label>
+          <Field
+            className="field__checkbox"
+            name={`includes.${library}`}
+            type="checkbox"
+            component="input"
+          />
+        </div>
+      }) }
     </div>
     <div className="wizard__navigation">
       <button className="wizard__previous button" type="button" onClick={() => previousStep(currentStep)}>
@@ -46,4 +49,4 @@ export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({
   form: 'wizard',
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true,
-})(Server));
+})(Includes));

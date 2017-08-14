@@ -14,20 +14,29 @@ const mapDispatchToProps = dispatch => ({
   previousStep: currentStep => dispatch(setStep(currentStep - 1)),
 });
 
-const Server = ({ nextStep, previousStep, currentStep }) => (
+
+const Compiler = ({ nextStep, previousStep, currentStep }) => (
   <div>
-    <h1 className="wizard__title">Select server version</h1>
+    <h1 className="wizard__title">Compiler</h1>
     <div className="wizard__fields">
-      <h2>Server version</h2>
-      <div className="field">
-        <label htmlFor="server" className="field__label">0.3.7-R2-1</label>
+      <div className="field field--wider">
+        <label htmlFor="compiler" className="field__label">Standard</label>
         <Field
           className="field__checkbox"
-          name="server"
-          type="checkbox"
+          name="compiler"
+          type="radio"
           component="input"
-          value="0.3.7-R2-1"
-          disabled
+          value="standard"
+        />
+      </div>
+      <div className="field field--wider">
+        <label htmlFor="compiler" className="field__label">Zeex&apos;s compiler</label>
+        <Field
+          className="field__checkbox"
+          name="compiler"
+          type="radio"
+          component="input"
+          value="zeex"
         />
       </div>
     </div>
@@ -46,4 +55,4 @@ export default connect(mapStateToProps, mapDispatchToProps)(reduxForm({
   form: 'wizard',
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true,
-})(Server));
+})(Compiler));
