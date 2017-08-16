@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "author": "Misiur",
   "main": "main.js",
+  "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
