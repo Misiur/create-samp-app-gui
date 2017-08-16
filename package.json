@@ -7,6 +7,7 @@
     "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
+    "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
@@ -32,7 +33,6 @@
     "redux-form": "^7.0.3",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
-    "uglify-js": "^3.0.27",
     "url-loader": "^0.5.9",
     "webpack": "^3.5.4",
     "webpack-dev-server": "^2.7.1"
@@ -44,6 +44,7 @@
     "windows": "electron-packager ./ create-samp-app-gui --out ./bin --overwrite --ignore=\"ignore|bin|node_modules\""
   },
   "dependencies": {
+    "create-samp-app": "0.0.1",
     "history": "^4.6.3"
   }
 }
